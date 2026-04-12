@@ -37,7 +37,10 @@ public class Celular {
     public double getPrecio() {
         return precio;
     }
-    public void setPrecio(int codigo) {
-        this.precio = codigo;
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
+    public String toString() {
+        return "Código: " + codigo + " | Mod: " + modelo + " | Stock: " + stock + " | Precio: $" + precio + "\n";
     }
 }
