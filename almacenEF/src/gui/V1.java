@@ -177,11 +177,13 @@ public class V1 extends JFrame implements ActionListener {
 			return Integer.parseInt(txtCodigo.getText());
 	}
 	protected void do_btnBuscar_actionPerformed(ActionEvent e) {
-		
+		// Boton Buscar 
 		txtS.setText("");
 		Celular c= a.Buscar(LeerCodigo());
-		
-		
+		if(c!=null) {
+			txtS.append("Producto encontrado");
+		}else txtS.append("Producto no registrado");
+	}
 		
 	}
 	Arreglos a = new Arreglos();
