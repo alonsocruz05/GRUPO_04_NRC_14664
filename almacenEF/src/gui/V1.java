@@ -11,6 +11,7 @@ import arreglo.Arreglos;
 import clase.Celular;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
@@ -128,9 +129,23 @@ public class V1 extends JFrame implements ActionListener {
 			txtS.setBounds(175, 6, 307, 300);
 			contentPane.add(txtS);
 		}
+		{
+			btnNewButton = new JButton("New button");
+			btnNewButton.setBounds(269, 147, 89, 23);
+			contentPane.add(btnNewButton);
+		}
+		{
+			btnAdicionar = new JButton("Adicionar");
+			btnAdicionar.addActionListener(this);
+			btnAdicionar.setBounds(63, 203, 89, 23);
+			contentPane.add(btnAdicionar);
+		}
 
 	}
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnAdicionar) {
+			do_btnNewButton_1_actionPerformed(e);
+		}
 		if (e.getSource() == btnBuscar) {
 			do_btnBuscar_actionPerformed(e);
 		}
@@ -142,7 +157,7 @@ public class V1 extends JFrame implements ActionListener {
 		}
 	}
 	protected void do_btnAgregar_actionPerformed(ActionEvent e) {
-		
+		// Boton de Más
 	}
 	protected void do_btnReportar_actionPerformed(ActionEvent e) {
 		txtS.setText("");
@@ -155,17 +170,47 @@ public class V1 extends JFrame implements ActionListener {
             	Celular c = a.Obtener(i);
             	txtS.append(c.getCodigo() + "\t" + c.getModelo() + "\t" + c.getStock() + "\t" + c.getPrecio() + "\n");
             }
+            
+          }
         }
         int LeerCodigo(){
-			return.integer.parseInt(txtCodigo.getText());
+			return Integer.parseInt(txtCodigo.getText());
 	}
 	protected void do_btnBuscar_actionPerformed(ActionEvent e) {
+		
 		txtS.setText("");
 		Celular c= a.Buscar(LeerCodigo());
 		
 		
+		
 	}
 	Arreglos a = new Arreglos();
-	
+	private JButton btnNewButton;
+	private JButton btnAdicionar;
+	protected void do_btnNewButton_1_actionPerformed(ActionEvent e) {
+		
+		Celular c1 = a.Buscar(LeerCodigo());
+		if (c1==null) {
+			Celular c11 = new  Celular(LeerCodigo(), LeerModelo(), LeerStock(), LeerPrecio());
+			a.Adicionar(c11);
+			JOptionPane.showMessageDialog(null, "Se agrego correctamente");
+		} 
+		
+		else JOptionPane.showMessageDialog(null, "El código ya existe");
+			
+		}
+
+    String LeerModelo() 
+    {
+      return txtModelo.getText();
+    }
+    int LeerStock() 
+    {
+     return Integer.parseInt(txtStock.getText());
+    }
+    double LeerPrecio() 
+    {
+     return Double.parseDouble(txtPrecio.getText());
+   }
 }
 
