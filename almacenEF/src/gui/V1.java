@@ -156,9 +156,13 @@ public class V1 extends JFrame implements ActionListener {
             	txtS.append(c.getCodigo() + "\t" + c.getModelo() + "\t" + c.getStock() + "\t" + c.getPrecio() + "\n");
             }
         }
-        
+        int LeerCodigo(){
+			return.integer.parseInt(txtCodigo.getText());
 	}
 	protected void do_btnBuscar_actionPerformed(ActionEvent e) {
+		txtS.setText("");
+		Celular c= a.Buscar(LeerCodigo());
+		
 		
 	}
 	Arreglos a = new Arreglos();
