@@ -18,13 +18,13 @@ import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class V1 extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JLabel lblNewLabel;
-	private JButton btnAgregar;
 	private JButton btnReportar;
 	private JButton btnBuscar;
 	private JLabel lblModelo;
@@ -66,12 +66,6 @@ public class V1 extends JFrame implements ActionListener {
 			lblNewLabel = new JLabel("Código");
 			lblNewLabel.setBounds(10, 11, 46, 14);
 			contentPane.add(lblNewLabel);
-		}
-		{
-			btnAgregar = new JButton("Agregar");
-			btnAgregar.addActionListener(this);
-			btnAgregar.setBounds(63, 119, 89, 23);
-			contentPane.add(btnAgregar);
 		}
 		{
 			btnReportar = new JButton("Reportar");
@@ -140,6 +134,12 @@ public class V1 extends JFrame implements ActionListener {
 			btnAdicionar.setBounds(63, 203, 89, 23);
 			contentPane.add(btnAdicionar);
 		}
+		{
+			lblNewLabel_1 = new JLabel("ACCIONES ");
+			lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+			lblNewLabel_1.setBounds(63, 119, 109, 27);
+			contentPane.add(lblNewLabel_1);
+		}
 
 	}
 	public void actionPerformed(ActionEvent e) {
@@ -152,12 +152,6 @@ public class V1 extends JFrame implements ActionListener {
 		if (e.getSource() == btnReportar) {
 			do_btnReportar_actionPerformed(e);
 		}
-		if (e.getSource() == btnAgregar) {
-			do_btnAgregar_actionPerformed(e);
-		}
-	}
-	protected void do_btnAgregar_actionPerformed(ActionEvent e) {
-		// Boton de Más
 	}
 	protected void do_btnReportar_actionPerformed(ActionEvent e) {
 		txtS.setText("");
@@ -177,18 +171,15 @@ public class V1 extends JFrame implements ActionListener {
 			return Integer.parseInt(txtCodigo.getText());
 	}
 	protected void do_btnBuscar_actionPerformed(ActionEvent e) {
-		// Boton Buscar 
-		txtS.setText("");
-		Celular c= a.Buscar(LeerCodigo());
-		if(c!=null) {
-			txtS.append("Producto encontrado");
-		}else txtS.append("Producto no registrado");
-	}
+		  txtS.setText("");
+	        Celular c= a.Buscar(LeerCodigo());
+	        txtS.append("" + c.getCodigo() + "  ---  " + c.getModelo() + "  ---  " + c.getStock() + "  ---  " + c.getPrecio() + "\n");
 		
 	}
 	Arreglos a = new Arreglos();
 	private JButton btnNewButton;
 	private JButton btnAdicionar;
+	private JLabel lblNewLabel_1;
 	protected void do_btnNewButton_1_actionPerformed(ActionEvent e) {
 		
 		Celular c1 = a.Buscar(LeerCodigo());
