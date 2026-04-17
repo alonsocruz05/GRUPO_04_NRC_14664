@@ -37,7 +37,7 @@ public class Celular {
     public double getPrecio() {
         return precio;
     }
-    public void setPrecio(int precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
     public String toString() {

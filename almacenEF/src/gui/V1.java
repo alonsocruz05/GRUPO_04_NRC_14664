@@ -140,6 +140,28 @@ public class V1 extends JFrame implements ActionListener {
 			lblNewLabel_1.setBounds(63, 119, 109, 27);
 			contentPane.add(lblNewLabel_1);
 		}
+		
+		JButton BtnModificar = new JButton("Modificar");
+		BtnModificar.addActionListener(new ActionListener() {
+			 //modificar
+			public void actionPerformed(ActionEvent e) {
+				try 
+				{//inicio try
+					Celular c = a.Buscar(LeerCodigo());
+					if (c != null) 
+					{//inicio if
+					c.setModelo(LeerModelo());
+					c.setStock(LeerStock());
+					c.setPrecio(LeerPrecio());
+					JOptionPane.showMessageDialog(null, "Se Modificó Correctamente");
+					txtS.setText("");
+					
+				}//fin if
+				
+			}//fin Try
+		});
+		BtnModificar.setBounds(63, 234, 89, 20);
+		contentPane.add(BtnModificar);
 
 	}
 	public void actionPerformed(ActionEvent e) {
