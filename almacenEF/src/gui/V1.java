@@ -140,31 +140,20 @@ public class V1 extends JFrame implements ActionListener {
 			lblNewLabel_1.setBounds(63, 119, 109, 27);
 			contentPane.add(lblNewLabel_1);
 		}
+		{
+			btnModificar = new JButton("Modificar");
+			btnModificar.addActionListener(this);
+			btnModificar.setBounds(63, 237, 89, 23);
+			contentPane.add(btnModificar);
+		}
 		
-		JButton BtnModificar = new JButton("Modificar");
-		BtnModificar.addActionListener(new ActionListener() {
-			 //modificar
-			public void actionPerformed(ActionEvent e) {
-				try 
-				{//inicio try
-					Celular c = a.Buscar(LeerCodigo());
-					if (c != null) 
-					{//inicio if
-					c.setModelo(LeerModelo());
-					c.setStock(LeerStock());
-					c.setPrecio(LeerPrecio());
-					JOptionPane.showMessageDialog(null, "Se Modificó Correctamente");
-					txtS.setText("");
-					
-				}//fin if
-				
-			}//fin Try
-		});
-		BtnModificar.setBounds(63, 234, 89, 20);
-		contentPane.add(BtnModificar);
+		
 
 	}
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnModificar) {
+			do_btnModificar_actionPerformed(e);
+		}
 		if (e.getSource() == btnAdicionar) {
 			do_btnNewButton_1_actionPerformed(e);
 		}
@@ -202,6 +191,7 @@ public class V1 extends JFrame implements ActionListener {
 	private JButton btnNewButton;
 	private JButton btnAdicionar;
 	private JLabel lblNewLabel_1;
+	private JButton btnModificar;
 	protected void do_btnNewButton_1_actionPerformed(ActionEvent e) {
 		
 		Celular c1 = a.Buscar(LeerCodigo());
@@ -227,5 +217,29 @@ public class V1 extends JFrame implements ActionListener {
     {
      return Double.parseDouble(txtPrecio.getText());
    }
-}
+	protected void do_btnModificar_actionPerformed(ActionEvent e) {
+		try 
+		{
+			Celular c = a.Buscar(LeerCodigo());
+			if (c != null) 
+			{
+			c.setModelo(LeerModelo());
+			c.setStock(LeerStock());
+			c.setPrecio(LeerPrecio());
+			JOptionPane.showMessageDialog(null, "Se Modificó Correctamente");
+			txtS.setText("");
+			
+			}else {
+				JOptionPane.showMessageDialog(null, "El código no existe");
+			}
+			}
+			catch(Exception exx)
+			{
+				JOptionPane.showMessageDialog(null, "¡Error! Revisa que todos los campos estén llenos correctamente");
+			}
+		
+		}
+		
+	}
+
 
