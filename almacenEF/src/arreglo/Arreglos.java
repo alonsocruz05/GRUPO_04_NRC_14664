@@ -31,4 +31,7 @@ public class Arreglos
 		}
 		return null;
 	}
+	public void Eliminar (Celular x){
+		celu.remove(x);
+		}
 }
