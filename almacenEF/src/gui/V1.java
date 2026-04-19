@@ -146,11 +146,20 @@ public class V1 extends JFrame implements ActionListener {
 			btnModificar.setBounds(63, 237, 89, 23);
 			contentPane.add(btnModificar);
 		}
+		{
+			btnEliminar = new JButton("Eliminar");
+			btnEliminar.addActionListener(this);
+			btnEliminar.setBounds(63, 271, 89, 23);
+			contentPane.add(btnEliminar);
+		}
 		
 		
 
 	}
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnEliminar) {
+			do_btnEliminar_actionPerformed(e);
+		}
 		if (e.getSource() == btnModificar) {
 			do_btnModificar_actionPerformed(e);
 		}
@@ -192,6 +201,7 @@ public class V1 extends JFrame implements ActionListener {
 	private JButton btnAdicionar;
 	private JLabel lblNewLabel_1;
 	private JButton btnModificar;
+	private JButton btnEliminar;
 	protected void do_btnNewButton_1_actionPerformed(ActionEvent e) {
 		
 		Celular c1 = a.Buscar(LeerCodigo());
@@ -239,7 +249,29 @@ public class V1 extends JFrame implements ActionListener {
 			}
 		
 		}
+	protected void do_btnEliminar_actionPerformed(ActionEvent e) {
 		
+		try {
+			
+	        Celular c = a.Buscar(LeerCodigo());
+	        if (c != null) {
+	            a.Eliminar(c);
+	            JOptionPane.showMessageDialog(null, "Se elimino Correctamente");
+	            txtS.setText("");
+	        } else {
+	            JOptionPane.showMessageDialog(null, "El código no existe");
+	        }
+			
+		}
+		catch(Exception exx)
+		{
+			JOptionPane.showMessageDialog(null, "¡Error! no hay nada para eliminar");
+		}
+	
+		
+		
+	}
+	
 	}
 
 
