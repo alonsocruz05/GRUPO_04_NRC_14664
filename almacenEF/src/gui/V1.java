@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.Color;
 
 public class V1 extends JFrame implements ActionListener {
 
@@ -59,6 +60,7 @@ public class V1 extends JFrame implements ActionListener {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 508, 370);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(0, 128, 192));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -69,6 +71,7 @@ public class V1 extends JFrame implements ActionListener {
 		}
 		{
 			btnReportar = new JButton("Reportar");
+			btnReportar.setBackground(new Color(255, 255, 255));
 			btnReportar.addActionListener(this);
 			btnReportar.setBounds(63, 147, 89, 23);
 			contentPane.add(btnReportar);
