@@ -11,9 +11,10 @@ public class Arreglos
 	{
 		celu = new ArrayList<Celular>();
 		Adicionar(new Celular(101540, "Iphone_15", 2, 5440));
-		Adicionar(new Celular(8012, "Sansumg_S25", 1, 1440));
+		Adicionar(new Celular(8012, "Samsung_S25", 1, 1440));
 		Adicionar(new Celular(19010, "Honor_X7B", 3, 740));
 		Adicionar(new Celular(10810, "Motorola_G54", 10, 840));
+		Adicionar(new Celular(9560, "Redmi note 13", 20, 720));
 	}
 	public void Adicionar(Celular x)
 	{
