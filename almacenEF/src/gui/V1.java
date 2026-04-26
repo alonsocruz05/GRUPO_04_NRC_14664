@@ -212,15 +212,6 @@ public class V1 extends JFrame implements ActionListener {
 	    } else {
 	        JOptionPane.showMessageDialog(this, "No se encontró el celular o campos vacíos.");
 	    }
-	    
-		/*
-			if(txtCodigo.getText().isEmpty()) {
-				Celular c = a.Buscar(LeerModelo());
-			}else if(txtModelo.getText().isEmpty()) {
-				Celular c= a.Buscar(LeerCodigo());
-			}
-	        JOptionPane.showMessageDialog(this,"" + c.getCodigo() + "  ---  " + c.getModelo() + "  ---  " + c.getStock() + "  ---  " + c.getPrecio() + "\n");
-		*/
 	}
 	Arreglos a = new Arreglos();
 	private JButton btnNewButton;
