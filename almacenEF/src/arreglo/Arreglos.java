@@ -15,6 +15,7 @@ public class Arreglos
 		Adicionar(new Celular(19010, "Honor_X7B", 3, 740));
 		Adicionar(new Celular(10810, "Motorola_G54", 10, 840));
 		Adicionar(new Celular(9560, "Redmi note 13", 20, 720));
+		Adicionar(new Celular(6060, "Xiaomi_T11", 20, 720));
 	}
 	public void Adicionar(Celular x)
 	{
@@ -31,6 +32,14 @@ public class Arreglos
 			if(Obtener(i).getCodigo()==cod) return Obtener(i);	
 		}
 		return null;
+	}
+	public Celular Buscar(String mod) {
+		for (int i = 0; i < Tamaño(); i++) {
+	        if(Obtener(i).getModelo().equals(mod)) {
+	            return Obtener(i);
+	        }
+	    }
+	    return null;
 	}
 	public void Eliminar (Celular x){
 		celu.remove(x);

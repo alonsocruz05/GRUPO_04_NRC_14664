@@ -194,10 +194,24 @@ public class V1 extends JFrame implements ActionListener {
 			return Integer.parseInt(txtCodigo.getText());
 	}
 	protected void do_btnBuscar_actionPerformed(ActionEvent e) {
-		  txtS.setText("");
-	        Celular c= a.Buscar(LeerCodigo());
-	        txtS.append("" + c.getCodigo() + "  ---  " + c.getModelo() + "  ---  " + c.getStock() + "  ---  " + c.getPrecio() + "\n");
-		
+		Celular c = null; 
+
+	    if (!txtCodigo.getText().isEmpty()) {
+	        c = a.Buscar(LeerCodigo()); 
+	    } 
+	    else if (!txtModelo.getText().isEmpty()) {
+	        c = a.Buscar(LeerModelo()); 
+	    }
+
+	    if (c != null) {
+	        JOptionPane.showMessageDialog(this, 
+	            "Código: " + c.getCodigo() + "\n" +
+	            "Modelo: " + c.getModelo() + "\n" +
+	            "Stock: " + c.getStock() + "\n" +
+	            "Precio: " + c.getPrecio());
+	    } else {
+	        JOptionPane.showMessageDialog(this, "No se encontró el celular o campos vacíos.");
+	    }
 	}
 	Arreglos a = new Arreglos();
 	private JButton btnNewButton;
