@@ -32,6 +32,14 @@ public class Arreglos
 		}
 		return null;
 	}
+	public Celular Buscar(String mod) {
+		for (int i = 0; i < Tamaño(); i++) {
+	        if(Obtener(i).getModelo().equals(mod)) {
+	            return Obtener(i);
+	        }
+	    }
+	    return null;
+	}
 	public void Eliminar (Celular x){
 		celu.remove(x);
 		}
