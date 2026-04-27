@@ -236,12 +236,8 @@ public class V1 extends JFrame implements ActionListener {
 		}	
 		}
 
-   String LeerModelo(boolean enMayusculas) {
-    if (enMayusculas) {
-        return txtModelo.getText().toUpperCase();
-    } else {
-        return txtModelo.getText().toLowerCase();
-    }
+   public String LeerModelo() {
+    return txtModelo.getText();
 }
     int LeerStock() 
     {
