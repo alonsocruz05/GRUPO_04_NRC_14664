@@ -220,7 +220,7 @@ public class V1 extends JFrame implements ActionListener {
 	private JButton btnModificar;
 	private JButton btnEliminar;
 	protected void do_btnNewButton_1_actionPerformed(ActionEvent e) {
-		
+		try {
 		Celular c1 = a.Buscar(LeerCodigo());
 		if (c1==null) {
 			Celular c11 = new  Celular(LeerCodigo(), LeerModelo(), LeerStock(), LeerPrecio());
@@ -229,7 +229,11 @@ public class V1 extends JFrame implements ActionListener {
 		} 
 		
 		else JOptionPane.showMessageDialog(null, "El código ya existe");
-			
+		}
+		catch (Exception exx) 
+		{
+			JOptionPane.showMessageDialog(null,"Error, Digite el código a modificar");
+		}	
 		}
 
     String LeerModelo() 
