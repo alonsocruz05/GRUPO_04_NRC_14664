@@ -1,0 +1,15 @@
+package paq;
+
+import java.util.ArrayList;
+
+public class Almacen {
+	public static ArrayList<Celular> listaCelulares = new ArrayList<>();
+    public static ArrayList<Usuario> listaUsuarios = new ArrayList<>();
+
+    public static void cargarDatosIniciales() {
+        listaUsuarios.add(new Usuario("12345678", "adminLeo", "Gerente"));
+        listaUsuarios.add(new Usuario("87654321", "marlo123", "Trabajador"));
+        listaCelulares.add(new Celular("C001", "Galaxy S24", "Samsung", 3499.0, 15));
+        listaCelulares.add(new Celular("C002", "iPhone 15", "Apple", 4199.0, 10));
+    }
+}
